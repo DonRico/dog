@@ -12,8 +12,7 @@ RUN cargo build --release
 FROM debian:bookworm-slim
 
 RUN apt update && \
-    apt install -y libssl3 && \
-    apt install -y ca-certificates && \
+    apt install -y libssl3 ca-certificates && \
     apt clean all
 
 COPY --from=build /build/target/release/dog /dog
